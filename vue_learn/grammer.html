@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grammer</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="vue.js"></script>
+<script type="text/javascript">
+    // let app = new Vue({
+    //     el:'#app',
+    //     template:'<h1>{{ msg }}</h1>',
+    //     data: function(){
+    //         return {
+    //             msg:'Grammer'
+    //         }
+    //     }
+    // })
+    // setInterval(function(){
+    //     if (app.msg=='Grammer'){
+    //         app.msg = 'Vue'
+    //     } else {
+    //         app.msg = 'Grammer'
+    //     }
+    // }, 500)
+
+
+
+    // let app = new Vue({
+    //     el:'#app',
+    //     template:'<p>Hello, {{ name }}. {{ greeting }}</p>',
+    //     data: function(){
+    //         return {
+    //             name:'Ucag'
+    //         }
+    //     },
+    //     computed:{
+    //         greeting: function(){
+    //             return 'I am Vue' + 'Nice to meet you ' + this.name
+    //         }
+    //     }
+    // })
+
+
+    // let app = new Vue({
+    //     el:'#app',
+    //     template:'<p>Hello, {{ name }}. {{ greeting }}</p>',
+    //     data: function(){
+    //         return {
+    //             name:'Ucag'
+    //         }
+    //     },
+    //     computed:{
+    //         greeting: {
+    //             get: function(){
+    //                 return 'I am Vue. ' + 'Nice to meet you ' + this.name
+    //             },
+    //             set: function(value){
+    //                 console.log('You can not change greeting to ' + value)
+    //             }
+    //         }
+    //     }
+    // })
+
+
+    // let app = new Vue({
+    //     el:'#app',
+    //     template:`<div>
+    //     <p>{{ say('hello') }} to {{ name }}</p>
+    //     </div>`,
+    //     data: function(){
+    //         return {
+    //             name:'Ucag'
+    //         }
+    //     },
+    //     methods:{
+    //         say: function(value){
+    //             return value.toUpperCase()
+    //         }
+    //     }
+    // })
+
+
+
+    let app = new Vue({
+    el:'#app',
+    template: `<div>
+    <input 
+    type="text" 
+    placeholder="username" 
+    v-on:input="changeHref">
+    <a v-bind:href="UserLink">Go Home</a>
+    </div>`,
+    data:function(){
+        return {
+            UserLink:'#'
+        }
+    },
+    methods:{
+        changeHref: function(event){
+            let username = event.target.value
+            if (username){
+                this.UserLink = 'http://www.example.com/' + username
+            } else {
+                this.UserLink = '#'
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>
